@@ -1,6 +1,6 @@
 # AuraFlow — Premium Team Task Manager
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-7c6fef?style=for-the-badge&logo=rocket)](https://auraflow-production-c5ab.up.railway.app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-7c6fef?style=for-the-badge&logo=rocket)](https://auraflow-app.up.railway.app/auth)
 [![License: MIT](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 AuraFlow is a state-of-the-art team task management platform designed for modern workflows. Built with a focus on visual excellence and high performance, it features a glassmorphic dark-mode interface, robust role-based access control, and intuitive project management.
