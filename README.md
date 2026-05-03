@@ -1,74 +1,76 @@
-# AuraFlow — Team Task Manager
+# AuraFlow — Premium Team Task Manager
 
-A full-stack team task management web application with role-based access control, a Kanban board, project management, and team collaboration features.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-7c6fef?style=for-the-badge&logo=rocket)](https://auraflow-production-c5ab.up.railway.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+AuraFlow is a state-of-the-art team task management platform designed for modern workflows. Built with a focus on visual excellence and high performance, it features a glassmorphic dark-mode interface, robust role-based access control, and intuitive project management.
+
+---
+
+## 🎨 Design & Aesthetic
+
+AuraFlow isn't just a tool; it's an experience.
+- **Glassmorphic UI** — Subtle blurs, semi-transparent surfaces, and glowing accents create a premium "floating" feel.
+- **Dynamic Dark Mode** — A carefully curated dark palette that reduces eye strain while maintaining high contrast for readability.
+- **Micro-Animations** — Staggered entry animations, hover lifts, and smooth state transitions using CSS transforms and transitions.
+- **Responsive & Edge-to-Edge** — A fully responsive layout with a professional sidebar that adapts to any screen size.
 
 ---
 
 ## ✨ Key Features
 
-- **Dynamic, Modern UI** — Clean, edge-to-edge layout built with vanilla CSS. Includes a professional sidebar, floating background orbs, staggered animations, count-up stats, and interactive shimmer loaders.
-- **Light & Dark Mode** — Full system-wide theme toggling with smooth transitions that persists across sessions.
-- **Authentication** — Secure JWT-based signup & login. First registered user is automatically assigned the Admin role.
-- **Role-Based Access Control** — 
-  - **Admins** can create projects, manage all tasks/members, and promote members. 
-  - **Members** can view projects, comment, and update the status of tasks assigned to them.
-- **Kanban Board** — Per-project board with four columns: To Do, In Progress, Review, and Done. Features hover lifts and glowing status badges.
-- **Task Management** — Create tasks with title, description, priority, assignee, and due date. Tasks automatically highlight when overdue.
-- **Team Notes (Comments)** — Leave comments on any task for team collaboration.
-- **Profile Management** — Update name, email, and manage passwords (with live password strength meters).
-- **Admin Dashboard** — Manage all tasks, projects, and users from a dedicated, restricted admin panel.
+- **Project & Kanban Management** — Organize tasks into projects with a dedicated Kanban board (To Do, In Progress, Review, Done).
+- **Advanced Role-Based Access Control (RBAC)** — 
+  - **Admins** have full control: create projects, manage all tasks/members, and **Promote/Demote** users.
+  - **Members** collaborate by creating tasks, updating assigned task statuses, and commenting.
+- **Real-time Stats** — Interactive dashboards with count-up statistics and visual progress indicators.
+- **Secure Authentication** — JWT-based auth with secure password hashing and live password strength validation.
+- **Team Collaboration** — Threaded comments on tasks for seamless team communication.
+- **Profile Customization** — Users can manage their identity, update passwords, and view their assigned workload.
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Backend
-| Package | Purpose |
+| Technology | Description |
 |---|---|
-| Node.js + Express 5 | REST API server |
-| MongoDB + Mongoose | Database & ODM |
-| JSON Web Token (JWT) | Authentication tokens |
-| bcryptjs | Password hashing |
-| express-validator | Input validation |
-| dotenv | Environment config |
-| cors | Cross-origin requests |
+| **Node.js & Express 5** | High-performance REST API |
+| **MongoDB & Mongoose** | Flexible NoSQL database & modeling |
+| **JWT & BcryptJS** | Secure authentication & hashing |
+| **Express Validator** | Robust server-side input validation |
 
 ### Frontend
-| Package | Purpose |
+| Technology | Description |
 |---|---|
-| React 19 + Vite | UI framework & build tool |
-| React Router DOM 7 | Client-side routing |
-| Axios | HTTP requests |
-| date-fns | Date formatting & comparison |
-| lucide-react | Icon library |
-| react-hot-toast | Toast notifications |
+| **React 19 & Vite** | Modern UI framework & lightning-fast builds |
+| **Vanilla CSS** | Custom design system with zero bloat |
+| **Lucide React** | Sleek, consistent iconography |
+| **Axios** | Optimized API communication with interceptors |
+| **React Hot Toast** | Elegant, non-intrusive notifications |
 
 ---
 
 ## 📁 Project Structure
 
-```
+```bash
 AuraFlow/
 ├── backend/
 │   ├── src/
-│   │   ├── controllers/       # Route handler logic
-│   │   ├── middleware/        # JWT verification, admin guard
-│   │   ├── models/            # Mongoose schemas (User, Task, Project, Comment)
-│   │   ├── routes/            # Express routers
-│   │   ├── index.js           # App entry point
-│   │   └── seed.js            # Sample data seeder
-│   ├── .env
+│   │   ├── controllers/       # Business logic handlers
+│   │   ├── middleware/        # JWT & RBAC guards
+│   │   ├── models/            # Database schemas
+│   │   ├── routes/            # API endpoints
+│   │   └── index.js           # Entry point
 │   └── package.json
-│
 └── frontend/
     ├── src/
-    │   ├── components/        # Reusable UI (Layout, Sidebar)
-    │   ├── context/           # AuthContext, ThemeContext
-    │   ├── pages/             # App Pages (Dashboard, Auth, Projects, Profile, Admin)
-    │   ├── utils/             # api.js (Axios instance with auth interceptor)
-    │   ├── App.jsx
-    │   ├── index.css          # Global CSS variables, animations, and styles
-    │   └── main.jsx
+    │   ├── components/        # Reusable UI elements
+    │   ├── context/           # Global state (Auth, Theme)
+    │   ├── pages/             # Main application views
+    │   ├── utils/             # API client & helpers
+    │   ├── index.css          # Core design system
+    │   └── App.jsx            # Routing & Layout
     └── package.json
 ```
 
@@ -76,121 +78,70 @@ AuraFlow/
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- Node.js v18+
-- MongoDB running locally (default: `mongodb://127.0.0.1:27017`)
+### 1. Prerequisites
+- Node.js (v18+)
+- MongoDB (Local instance or Atlas)
 
----
-
-### 1. Clone the repository
+### 2. Installation
 
 ```bash
-git clone <your-repo-url>
+# Clone the repo
+git clone https://github.com/BE77ION/AuraFlow.git
 cd AuraFlow
+
+# Install Backend dependencies
+cd backend && npm install
+
+# Install Frontend dependencies
+cd ../frontend && npm install
 ```
 
----
+### 3. Environment Setup
 
-### 2. Set up the Backend
-
-```bash
-cd backend
-npm install
-```
-
-Create a `.env` file in the `backend/` directory:
-
+Create a `.env` in the `backend/` folder:
 ```env
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/auraflow
-JWT_SECRET=your_super_secret_key_here
+JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:5173
 ```
 
-Start the backend dev server:
+### 4. Running the App
 
 ```bash
+# Run Backend (from /backend)
+npm run dev
+
+# Run Frontend (from /frontend)
 npm run dev
 ```
 
-The API will be available at `http://localhost:5000`.
-
-> **Optional:** Seed sample data (projects, tasks, members):
-> ```bash
-> node src/seed.js
-> ```
-
 ---
 
-### 3. Set up the Frontend
+## 🌐 API Reference
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-The frontend will be available at `http://localhost:5173`.
-
----
-
-## 🌐 API Endpoints
-
-### Auth — `/api/auth`
-| Method | Route | Access | Description |
-|---|---|---|---|
-| POST | `/signup` | Public | Register a new user |
-| POST | `/login` | Public | Login and receive JWT |
-| GET | `/me` | Auth | Get current user info |
-
-### Projects — `/api/projects`
-| Method | Route | Access | Description |
-|---|---|---|---|
-| GET | `/` | Auth | List all projects |
-| GET | `/:id` | Auth | Get a project by ID |
-| POST | `/` | Admin | Create a new project |
-
-### Tasks — `/api/tasks`
-| Method | Route | Access | Description |
-|---|---|---|---|
-| GET | `/` | Auth | List tasks (filter by `projectId`, `assigneeId`, `status`) |
-| GET | `/:id` | Auth | Get a task by ID |
-| POST | `/` | Auth | Create a task |
-| PATCH | `/:id` | Auth | Update a task (full edit for author/admin, status-only for assignee) |
-| DELETE | `/:id` | Auth | Delete a task (author or admin only) |
-
-### Comments — `/api/comments`
-| Method | Route | Access | Description |
-|---|---|---|---|
-| GET | `/:taskId` | Auth | Get all comments for a task |
-| POST | `/` | Auth | Add a comment |
-| DELETE | `/:id` | Auth | Delete a comment (author or admin only) |
-
-### Users (Members) — `/api/users`
-| Method | Route | Access | Description |
+### User Management (`/api/users`)
+| Method | Endpoint | Access | Description |
 |---|---|---|---|
 | GET | `/` | Auth | List all members |
-| DELETE | `/:id` | Admin | Delete a member |
-| PATCH | `/:id/promote` | Admin | Promote a member to admin |
-| PATCH | `/me/profile` | Auth | Update current user profile (name, email) |
-| PATCH | `/me/password` | Auth | Change current user password |
+| PATCH | `/:id/promote` | Admin | Promote user to Admin |
+| PATCH | `/:id/demote` | Admin | Demote Admin to Member |
+| DELETE | `/:id` | Admin | Remove member |
+| PATCH | `/me/profile` | Auth | Update profile details |
+
+### Projects & Tasks
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| POST | `/api/projects` | Admin | Create a project |
+| GET | `/api/tasks` | Auth | List/Filter tasks |
+| PATCH | `/api/tasks/:id`| Auth | Update task/status |
 
 ---
 
-## 🔐 Role Permissions
+## 📄 License
 
-| Action | Admin | Member (Author) | Member (Assignee) |
-|---|:---:|:---:|:---:|
-| Create project | ✅ | ❌ | ❌ |
-| Create task | ✅ | ✅ | ✅ |
-| Edit task fully | ✅ | ✅ | ❌ |
-| Update task status | ✅ | ✅ | ✅ |
-| Delete task | ✅ | ✅ | ❌ |
-| Manage members | ✅ | ❌ | ❌ |
-| Access admin panel | ✅ | ❌ | ❌ |
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## License
-
-MIT
+Built with ❤️ by [BE77ION](https://github.com/BE77ION)
